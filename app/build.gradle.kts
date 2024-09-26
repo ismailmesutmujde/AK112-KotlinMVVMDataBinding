@@ -39,6 +39,8 @@ android {
     }
 }
 
+val lifecycle_version = "2.8.5"
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -46,10 +48,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.6")
-    implementation("androidx.activity:activity-ktx:1.9.2")
 }
