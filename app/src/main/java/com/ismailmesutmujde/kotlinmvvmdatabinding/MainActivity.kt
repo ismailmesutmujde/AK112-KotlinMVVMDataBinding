@@ -22,28 +22,27 @@ class MainActivity : AppCompatActivity() {
         // 2) Then add a layout tag to the top of activity.main.xml and move the xml related codes in ConstraintLayout to the layout.
         // 3) Access design and visual objects in Activity (Main)
 
-        bindingMain.calculationResult = viewModel.result
-
+        viewModel.result.observe(this, { s ->
+            bindingMain.calculationResult = s
+        })
     }
 
     // Event Handle
     fun buttonSumClick(receivedNumber1:String, receivedNumber2:String) {
         viewModel.makeSum(receivedNumber1,receivedNumber2)
-        bindingMain.calculationResult = viewModel.result
+
     }
 
     fun buttonSubtractClick(receivedNumber1:String, receivedNumber2:String) {
         viewModel.makeSubtract(receivedNumber1,receivedNumber2)
-        bindingMain.calculationResult = viewModel.result
+
     }
 
     fun buttonMultiplyClick(receivedNumber1:String, receivedNumber2:String) {
         viewModel.makeMultiply(receivedNumber1,receivedNumber2)
-        bindingMain.calculationResult = viewModel.result
     }
 
     fun buttonDivideClick(receivedNumber1:String, receivedNumber2:String) {
         viewModel.makeDivide(receivedNumber1,receivedNumber2)
-        bindingMain.calculationResult = viewModel.result
     }
 }
