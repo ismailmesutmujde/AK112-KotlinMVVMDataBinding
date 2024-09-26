@@ -7,6 +7,7 @@
     <data>
         <variable name="mainActivityObject" type="com.ismailmesutmujde.kotlinmvvmdatabinding.MainActivity"/>
         <variable name="calculationResult"  type="String" />
+        <import type="android.view.View"/>
     </data>
 
 
@@ -22,6 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:text="@{calculationResult}"
+            android:textColor="@{Double.parseDouble(calculationResult) > 10 ? @color/red : @color/blue}"
+            android:visibility="@{Double.parseDouble(calculationResult) > 20 ? View.INVISIBLE : View.VISIBLE}"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
