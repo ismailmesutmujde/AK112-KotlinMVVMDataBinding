@@ -18,52 +18,43 @@ class MainActivity : AppCompatActivity() {
         // 2) Then add a layout tag to the top of activity.main.xml and move the xml related codes in ConstraintLayout to the layout.
         // 3) Access design and visual objects in Activity (Main)
 
+        bindingMain.mainActivityObject = this
 
         // Access the visual objects
         bindingMain.textViewResult.text = "0"
 
-        bindingMain.buttonSum.setOnClickListener {
-            val receivedNumber1 = bindingMain.editTextNumber1.text.toString()
-            val receivedNumber2 = bindingMain.editTextNumber2.text.toString()
+    }
 
-            val number1 = receivedNumber1.toDouble()
-            val number2 = receivedNumber2.toDouble()
+    // Event Handle
+    fun buttonSumClick(receivedNumber1:String, receivedNumber2:String) {
+        val number1 = receivedNumber1.toDouble()
+        val number2 = receivedNumber2.toDouble()
 
-            val sum = number1 + number2
-            bindingMain.textViewResult.text = sum.toString()
-        }
+        val sum = number1 + number2
+        bindingMain.textViewResult.text = sum.toString()
+    }
 
-        bindingMain.buttonSubtract.setOnClickListener {
-            val receivedNumber1 = bindingMain.editTextNumber1.text.toString()
-            val receivedNumber2 = bindingMain.editTextNumber2.text.toString()
+    fun buttonSubtractClick(receivedNumber1:String, receivedNumber2:String) {
+        val number1 = receivedNumber1.toDouble()
+        val number2 = receivedNumber2.toDouble()
 
-            val number1 = receivedNumber1.toDouble()
-            val number2 = receivedNumber2.toDouble()
+        val subtract = number1 - number2
+        bindingMain.textViewResult.text = subtract.toString()
+    }
 
-            val subtract = number1 - number2
-            bindingMain.textViewResult.text = subtract.toString()
-        }
+    fun buttonMultiplyClick(receivedNumber1:String, receivedNumber2:String) {
+        val number1 = receivedNumber1.toDouble()
+        val number2 = receivedNumber2.toDouble()
 
-        bindingMain.buttonMultiply.setOnClickListener {
-            val receivedNumber1 = bindingMain.editTextNumber1.text.toString()
-            val receivedNumber2 = bindingMain.editTextNumber2.text.toString()
+        val multiply = number1 * number2
+        bindingMain.textViewResult.text = multiply.toString()
+    }
 
-            val number1 = receivedNumber1.toDouble()
-            val number2 = receivedNumber2.toDouble()
+    fun buttonDivideClick(receivedNumber1:String, receivedNumber2:String) {
+        val number1 = receivedNumber1.toDouble()
+        val number2 = receivedNumber2.toDouble()
 
-            val multiply = number1 * number2
-            bindingMain.textViewResult.text = multiply.toString()
-        }
-        bindingMain.buttonDivide.setOnClickListener {
-            val receivedNumber1 = bindingMain.editTextNumber1.text.toString()
-            val receivedNumber2 = bindingMain.editTextNumber2.text.toString()
-
-            val number1 = receivedNumber1.toDouble()
-            val number2 = receivedNumber2.toDouble()
-
-            val divide = number1 / number2
-            bindingMain.textViewResult.text = divide.toString()
-        }
-
+        val divide = number1 / number2
+        bindingMain.textViewResult.text = divide.toString()
     }
 }
