@@ -6,35 +6,25 @@ import androidx.lifecycle.ViewModel
 class MainActivityViewModel : ViewModel() {
     var result = MutableLiveData<String>()
 
+    var mRepo = MathematicsRepository()
+
     init {
-        result = MutableLiveData<String>("0")
+        result = mRepo.getMathResult()
     }
 
     fun makeSum(receivedNumber1:String, receivedNumber2:String) {
-        val number1 = receivedNumber1.toDouble()
-        val number2 = receivedNumber2.toDouble()
-        val sum = number1 + number2
-        result.value = sum.toString()
+        mRepo.sum(receivedNumber1, receivedNumber2)
     }
 
     fun makeSubtract(receivedNumber1:String, receivedNumber2:String) {
-        val number1 = receivedNumber1.toDouble()
-        val number2 = receivedNumber2.toDouble()
-        val subtract = number1 - number2
-        result.value = subtract.toString()
+        mRepo.subtract(receivedNumber1, receivedNumber2)
     }
 
     fun makeMultiply(receivedNumber1:String, receivedNumber2:String) {
-        val number1 = receivedNumber1.toDouble()
-        val number2 = receivedNumber2.toDouble()
-        val multiply = number1 * number2
-        result.value = multiply.toString()
+        mRepo.multiply(receivedNumber1, receivedNumber2)
     }
 
     fun makeDivide(receivedNumber1:String, receivedNumber2:String) {
-        val number1 = receivedNumber1.toDouble()
-        val number2 = receivedNumber2.toDouble()
-        val divide = number1 / number2
-        result.value = divide.toString()
+        mRepo.divide(receivedNumber1, receivedNumber2)
     }
 }
